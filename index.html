@@ -373,6 +373,83 @@ section { padding: 100px 0; }
 .lab-watch:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
 .lab-watch i { font-size: 16px; }
 
+.screenshot-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.screenshot-gallery img {
+  width: 100%;
+  aspect-ratio: 9/19;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.screenshot-gallery img:hover {
+  transform: scale(1.03);
+  border-color: var(--text);
+}
+
+.project-screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.project-screenshots img {
+  width: 100%;
+  aspect-ratio: 9/19;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.project-screenshots img:hover {
+  transform: scale(1.03);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  cursor: pointer;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: white;
+  font-size: 24px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .projects-section { background: var(--text); color: var(--bg); }
 .projects-section .section-label {
   background: rgba(255,255,255,0.1);
@@ -772,6 +849,10 @@ footer ul li a:hover { color: var(--bg); }
         <div class="lab-number">Lab 01</div>
         <h3>UI Layout Fundamentals</h3>
         <p class="lab-meta-text">Wedding card with Row, Column, Box composables</p>
+        <div class="screenshot-gallery">
+          <img src="screenshots/lab1-1.png" alt="Lab 1 screenshot 1" onclick="openLightbox(this.src)">
+          <img src="screenshots/lab1-2.png" alt="Lab 1 screenshot 2" onclick="openLightbox(this.src)">
+        </div>
         <p class="lab-reflection">First introduction to Jetpack Compose. Moving from imperative XML to declarative UI was a mindset shift. Learning how layout primitives nest together gave me the foundation for every screen that followed.</p>
         <a href="https://youtu.be/NNY_NXvuYdg" target="_blank" class="lab-watch">
           <i class="ti ti-player-play"></i>
@@ -783,6 +864,10 @@ footer ul li a:hover { color: var(--bg); }
         <div class="lab-number">Lab 02</div>
         <h3>State and Interaction</h3>
         <p class="lab-meta-text">TextField, Button, mutableStateOf, recomposition</p>
+        <div class="screenshot-gallery">
+          <img src="screenshots/lab2-1.png" alt="Lab 2 screenshot 1" onclick="openLightbox(this.src)">
+          <img src="screenshots/lab2-2.png" alt="Lab 2 screenshot 2" onclick="openLightbox(this.src)">
+        </div>
         <p class="lab-reflection">The moment Compose truly clicked. Understanding that the UI re-renders automatically when state changes unlocked the entire framework. Built my first interactive screens that responded to user input.</p>
         <a href="https://youtu.be/MbtOkqtRzJ8" target="_blank" class="lab-watch">
           <i class="ti ti-player-play"></i>
@@ -794,6 +879,10 @@ footer ul li a:hover { color: var(--bg); }
         <div class="lab-number">Lab 03</div>
         <h3>Material Design System</h3>
         <p class="lab-meta-text">Themes, typography, color tokens, Card composables</p>
+        <div class="screenshot-gallery">
+          <img src="screenshots/lab3-1.png" alt="Lab 3 screenshot 1" onclick="openLightbox(this.src)">
+          <img src="screenshots/lab3-2.png" alt="Lab 3 screenshot 2" onclick="openLightbox(this.src)">
+        </div>
         <p class="lab-reflection">Transformed my app from functional to professional. Color tokens like WarmOrange and DeepBrown plus consistent typography made every screen feel like part of the same product. Card composables became my favorite design element.</p>
         <a href="https://youtu.be/bu50JVHHWPs" target="_blank" class="lab-watch">
           <i class="ti ti-player-play"></i>
@@ -805,6 +894,10 @@ footer ul li a:hover { color: var(--bg); }
         <div class="lab-number">Lab 04</div>
         <h3>Navigation and ViewModel</h3>
         <p class="lab-meta-text">NavController, NavHost, shared state across screens</p>
+        <div class="screenshot-gallery">
+          <img src="screenshots/lab4-1.png" alt="Lab 4 screenshot 1" onclick="openLightbox(this.src)">
+          <img src="screenshots/lab4-2.png" alt="Lab 4 screenshot 2" onclick="openLightbox(this.src)">
+        </div>
         <p class="lab-reflection">The breakthrough lab. ViewModel made multi-screen apps manageable by providing a single source of truth. Understanding lifecycle and configuration changes was the key to building robust Android applications.</p>
         <a href="https://youtu.be/viogL-tgmcE" target="_blank" class="lab-watch">
           <i class="ti ti-player-play"></i>
@@ -816,6 +909,10 @@ footer ul li a:hover { color: var(--bg); }
         <div class="lab-number">Lab 05</div>
         <h3>Room Database</h3>
         <p class="lab-meta-text">Entity, DAO, Repository, SQLite persistence</p>
+        <div class="screenshot-gallery">
+          <img src="screenshots/lab5-1.png" alt="Lab 5 screenshot 1" onclick="openLightbox(this.src)">
+          <img src="screenshots/lab5-2.png" alt="Lab 5 screenshot 2" onclick="openLightbox(this.src)">
+        </div>
         <p class="lab-reflection">Brought real persistence to my app. Configuring KSP with built-in Kotlin support was challenging but the MVVM plus Repository pattern is now my default architecture. Flow and StateFlow make UI updates automatic and reactive.</p>
         <a href="https://youtu.be/0RfLDu0Ul5Y" target="_blank" class="lab-watch">
           <i class="ti ti-player-play"></i>
@@ -841,6 +938,12 @@ footer ul li a:hover { color: var(--bg); }
       </div>
       <p class="project-meta-text">Multi-screen architecture · Navigation · ViewModel · SDG 2 alignment</p>
 
+      <div class="project-screenshots">
+        <img src="screenshots/project1-1.png" alt="Project 1 screenshot 1" onclick="openLightbox(this.src)">
+        <img src="screenshots/project1-2.png" alt="Project 1 screenshot 2" onclick="openLightbox(this.src)">
+        <img src="screenshots/project1-3.png" alt="Project 1 screenshot 3" onclick="openLightbox(this.src)">
+      </div>
+
       <div class="project-section-title">Problem statement</div>
       <p>Food waste and hunger coexist in our communities — millions face hunger daily while tonnes of food go to waste. LapauApp lets users order food while automatically donating from every order to fund community meals. Every three items ordered equals one meal funded, turning everyday purchases into measurable social impact.</p>
 
@@ -865,6 +968,13 @@ footer ul li a:hover { color: var(--bg); }
         <span class="project-tag">Project 02</span>
       </div>
       <p class="project-meta-text">14 screens · Room · Firebase · Retrofit · CameraX · ML Kit</p>
+
+      <div class="project-screenshots">
+        <img src="screenshots/project2-1.png" alt="Project 2 screenshot 1" onclick="openLightbox(this.src)">
+        <img src="screenshots/project2-2.png" alt="Project 2 screenshot 2" onclick="openLightbox(this.src)">
+        <img src="screenshots/project2-3.png" alt="Project 2 screenshot 3" onclick="openLightbox(this.src)">
+        <img src="screenshots/project2-4.png" alt="Project 2 screenshot 4" onclick="openLightbox(this.src)">
+      </div>
 
       <div class="project-section-title">Problem statement</div>
       <p>Extended LapauApp into a complete food waste reduction platform. Users scan food barcodes with the device camera, fetch live product details from the OpenFoodFacts API, track items in a personal fridge with expiry warnings, and donate surplus food to a real-time community food bank powered by Firebase Firestore — enabling local food sharing across the entire community.</p>
@@ -1065,6 +1175,29 @@ footer ul li a:hover { color: var(--bg); }
     </div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close"><i class="ti ti-x"></i></div>
+  <img id="lightbox-img" src="" alt="Screenshot">
+</div>
+
+<script>
+  function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 
 </body>
 </html>
