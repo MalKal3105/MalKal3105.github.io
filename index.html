@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Iqmal Haikal — Mobile Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/[email protected]/dist/tabler-icons.min.css">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --text: #0A0A0A;
+  --text-muted: #6B6B6B;
+  --text-soft: #A0A0A0;
+  --border: #E8E6E0;
+  --border-strong: #D4D2CC;
+  --accent-hover: #2C2C2C;
+  --highlight: #E8FF8C;
+  --max-width: 1200px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 250, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+nav .nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo-dot {
+  width: 8px; height: 8px;
+  background: var(--text);
+  border-radius: 50%;
+}
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--text);
+  color: var(--bg) !important;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+}
+
+.hero { padding: 100px 0 80px; position: relative; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.hero h1 {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.hero h1 .highlight {
+  background: var(--highlight);
+  padding: 0 8px;
+  display: inline-block;
+}
+@media (max-width: 768px) { .hero h1 { font-size: 48px; } }
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.hero-meta-item { display: flex; flex-direction: column; }
+.hero-meta-label {
+  font-size: 12px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.hero-meta-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary { background: var(--text); color: var(--bg); }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--border); }
+
+.hero-visual {
+  position: relative;
+  height: 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+.hero-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+.visual-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.visual-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.visual-card-label {
+  font-size: 11px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.visual-card-value {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+}
+.visual-card-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.visual-card.highlight { background: var(--text); color: var(--bg); border-color: var(--text); }
+.visual-card.highlight .visual-card-label { color: rgba(255,255,255,0.6); }
+.visual-card.highlight .visual-card-sub { color: rgba(255,255,255,0.7); }
+.visual-card.highlight .visual-card-icon {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: var(--bg);
+}
+
+section { padding: 100px 0; }
+.section-header { margin-bottom: 64px; max-width: 600px; }
+.section-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  padding: 4px 12px;
+  background: var(--surface);
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+.section-title {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) { .section-title { font-size: 36px; } }
+.section-sub { font-size: 17px; color: var(--text-muted); line-height: 1.6; }
+
+.profile-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .profile-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+.profile-info-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.profile-row:last-child { border-bottom: none; }
+.profile-row-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.profile-row-value { font-size: 14px; font-weight: 600; color: var(--text); text-align: right; }
+
+.profile-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+.profile-content h3:first-child { margin-top: 0; }
+.profile-content p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.profile-content ul { list-style: none; padding: 0; }
+.profile-content ul li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.profile-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 12px;
+  height: 1px;
+  background: var(--text-muted);
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.lab-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.2s;
+}
+.lab-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+.lab-number {
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+.lab-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.lab-meta-text { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.lab-reflection { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+.lab-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 8px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 100px;
+  transition: all 0.15s;
+}
+.lab-watch:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+.lab-watch i { font-size: 16px; }
+
+.projects-section { background: var(--text); color: var(--bg); }
+.projects-section .section-label {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+}
+.projects-section .section-sub { color: rgba(255,255,255,0.7); }
+
+.project-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 24px;
+  transition: all 0.2s;
+}
+.project-card:hover { border-color: rgba(255,255,255,0.2); }
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.project-header h3 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.project-tag {
+  background: var(--highlight);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.project-meta-text { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+.project-section-title {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-top: 28px;
+}
+.project-section-title:first-of-type { margin-top: 0; }
+.project-card p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85); }
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+}
+.pillar-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px;
+}
+.pillar-item-icon { font-size: 20px; margin-bottom: 12px; color: var(--highlight); }
+.pillar-item h5 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.pillar-item p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.project-links { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.project-link-btn.primary { background: var(--highlight); color: var(--text); }
+.project-link-btn.primary:hover { background: #D4F050; }
+.project-link-btn.secondary {
+  background: rgba(255,255,255,0.1);
+  color: var(--bg);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.project-link-btn.secondary:hover { background: rgba(255,255,255,0.2); }
+.project-link-btn i { font-size: 16px; }
+
+.reflection-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 768px) { .reflection-grid { grid-template-columns: 1fr; } }
+.reflection-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+.reflection-card-num {
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.reflection-card h4 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+.reflection-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+.reflection-card ul { list-style: none; padding: 0; }
+.reflection-card ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.reflection-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 1px;
+  background: var(--text);
+}
+.reflection-card ul li strong { color: var(--text); font-weight: 600; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.skill-tag {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s;
+  cursor: default;
+}
+.skill-tag:hover { border-color: var(--text); transform: translateY(-2px); }
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.resource-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+}
+.resource-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.resource-card h4 i { font-size: 20px; color: var(--text-muted); }
+.resource-card ul { list-style: none; padding: 0; }
+.resource-card ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.resource-card ul li:last-child { border-bottom: none; }
+.resource-card ul li a { color: var(--text); font-weight: 500; transition: color 0.15s; }
+.resource-card ul li a:hover { text-decoration: underline; }
+.resource-note { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-top: 12px; }
+
+footer { background: var(--text); color: var(--bg); padding: 60px 0 40px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+footer h5 {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.footer-brand-name { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+.footer-brand-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 380px; }
+footer ul { list-style: none; padding: 0; }
+footer ul li { margin-bottom: 10px; }
+footer ul li a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.15s;
+}
+footer ul li a:hover { color: var(--bg); }
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.5); }
+.footer-socials { display: flex; gap: 12px; }
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.footer-socials a:hover { background: var(--bg); color: var(--text); }
+.footer-socials a i { font-size: 16px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-dot"></div>
+      Muhammad Iqmal Haikal — A221017
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#labs">Labs</a>
+      <a href="#projects">Projects</a>
+      <a href="#reflection">Reflection</a>
+      <a href="#skills">Skills</a>
+    </div>
+    <a href="https://github.com/MalKal3105/LapauApp" target="_blank" class="nav-cta">View source</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Available for opportunities
+        </div>
+        <h1>Mobile developer building <span class="highlight">meaningful</span> products.</h1>
+        <p class="hero-sub">An Information Technology student crafting Android apps with Jetpack Compose, MVVM architecture, and cloud-native technologies. Currently building LapauApp — an SDG 2 Zero Hunger initiative.</p>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Matric</span>
+            <span class="hero-meta-value">A221017</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Instructor</span>
+            <span class="hero-meta-value">Sir Izwan</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Focus</span>
+            <span class="hero-meta-value">SDG 2 — Zero Hunger</span>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            View projects
+            <i class="ti ti-arrow-right"></i>
+          </a>
+          <a href="https://github.com/MalKal3105/LapauApp" target="_blank" class="btn btn-secondary">
+            <i class="ti ti-brand-github"></i>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-grid">
+          <div class="visual-card">
+            <div class="visual-card-icon"><i class="ti ti-device-mobile"></i></div>
+            <div>
+              <div class="visual-card-label">Screens</div>
+              <div class="visual-card-value">14</div>
+              <div class="visual-card-sub">Project 2</div>
+            </div>
+          </div>
+          <div class="visual-card highlight">
+            <div class="visual-card-icon"><i class="ti ti-stack-2"></i></div>
+            <div>
+              <div class="visual-card-label">Pillars</div>
+              <div class="visual-card-value">4</div>
+              <div class="visual-card-sub">Integrated</div>
+            </div>
+          </div>
+          <div class="visual-card">
+            <div class="visual-card-icon"><i class="ti ti-code"></i></div>
+            <div>
+              <div class="visual-card-label">Language</div>
+              <div class="visual-card-value">Kotlin</div>
+              <div class="visual-card-sub">Compose</div>
+            </div>
+          </div>
+          <div class="visual-card">
+            <div class="visual-card-icon"><i class="ti ti-target"></i></div>
+            <div>
+              <div class="visual-card-label">Labs</div>
+              <div class="visual-card-value">5/5</div>
+              <div class="visual-card-sub">Complete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="profile-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">About</span>
+      <h2 class="section-title">Building purposeful technology.</h2>
+      <p class="section-sub">Combining formal networking studies with hands-on mobile development to create apps that solve real problems.</p>
+    </div>
+
+    <div class="profile-grid">
+      <div class="profile-info-card">
+        <div class="profile-row">
+          <span class="profile-row-label">Full name</span>
+          <span class="profile-row-value">Muhammad Iqmal Haikal bin Mansor</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-row-label">Matric no.</span>
+          <span class="profile-row-value">A221017</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-row-label">Programme</span>
+          <span class="profile-row-value">Information Technology</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-row-label">Instructor</span>
+          <span class="profile-row-value">Sir Izwan</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-row-label">SDG focus</span>
+          <span class="profile-row-value">SDG 2</span>
+        </div>
+      </div>
+
+      <div class="profile-content">
+        <h3>The mission</h3>
+        <p>Every line of code in LapauApp is written with one goal — bring us closer to a world where no one goes hungry. By connecting food orders to meal donations and empowering communities to share surplus food, technology becomes a force for measurable social good.</p>
+
+        <h3>Learning goals</h3>
+        <ul>
+          <li>Master Jetpack Compose and modern Android architecture patterns</li>
+          <li>Build production-ready apps integrating local databases, cloud services, and REST APIs</li>
+          <li>Apply technical skills to support UN Sustainable Development Goals</li>
+          <li>Develop end-to-end capabilities from UI design through cloud integration</li>
+        </ul>
+
+        <h3>Background</h3>
+        <p>This portfolio documents my mobile application development coursework — five progressive labs and two major projects — culminating in LapauApp, a fully integrated Android application aligned with UN SDG 2 Zero Hunger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="labs">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Coursework</span>
+      <h2 class="section-title">Five labs. One journey.</h2>
+      <p class="section-sub">From static UI in Lab 1 to persistent storage in Lab 5 — every lab building toward the final architecture.</p>
+    </div>
+
+    <div class="lab-grid">
+      <div class="lab-card">
+        <div class="lab-number">Lab 01</div>
+        <h3>UI Layout Fundamentals</h3>
+        <p class="lab-meta-text">Wedding card with Row, Column, Box composables</p>
+        <p class="lab-reflection">First introduction to Jetpack Compose. Moving from imperative XML to declarative UI was a mindset shift. Learning how layout primitives nest together gave me the foundation for every screen that followed.</p>
+        <a href="https://youtu.be/NNY_NXvuYdg" target="_blank" class="lab-watch">
+          <i class="ti ti-player-play"></i>
+          Watch demo
+        </a>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-number">Lab 02</div>
+        <h3>State and Interaction</h3>
+        <p class="lab-meta-text">TextField, Button, mutableStateOf, recomposition</p>
+        <p class="lab-reflection">The moment Compose truly clicked. Understanding that the UI re-renders automatically when state changes unlocked the entire framework. Built my first interactive screens that responded to user input.</p>
+        <a href="https://youtu.be/MbtOkqtRzJ8" target="_blank" class="lab-watch">
+          <i class="ti ti-player-play"></i>
+          Watch demo
+        </a>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-number">Lab 03</div>
+        <h3>Material Design System</h3>
+        <p class="lab-meta-text">Themes, typography, color tokens, Card composables</p>
+        <p class="lab-reflection">Transformed my app from functional to professional. Color tokens like WarmOrange and DeepBrown plus consistent typography made every screen feel like part of the same product. Card composables became my favorite design element.</p>
+        <a href="https://youtu.be/bu50JVHHWPs" target="_blank" class="lab-watch">
+          <i class="ti ti-player-play"></i>
+          Watch demo
+        </a>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-number">Lab 04</div>
+        <h3>Navigation and ViewModel</h3>
+        <p class="lab-meta-text">NavController, NavHost, shared state across screens</p>
+        <p class="lab-reflection">The breakthrough lab. ViewModel made multi-screen apps manageable by providing a single source of truth. Understanding lifecycle and configuration changes was the key to building robust Android applications.</p>
+        <a href="https://youtu.be/viogL-tgmcE" target="_blank" class="lab-watch">
+          <i class="ti ti-player-play"></i>
+          Watch demo
+        </a>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-number">Lab 05</div>
+        <h3>Room Database</h3>
+        <p class="lab-meta-text">Entity, DAO, Repository, SQLite persistence</p>
+        <p class="lab-reflection">Brought real persistence to my app. Configuring KSP with built-in Kotlin support was challenging but the MVVM plus Repository pattern is now my default architecture. Flow and StateFlow make UI updates automatic and reactive.</p>
+        <a href="https://youtu.be/0RfLDu0Ul5Y" target="_blank" class="lab-watch">
+          <i class="ti ti-player-play"></i>
+          Watch demo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Major projects</span>
+      <h2 class="section-title">From idea to production-ready.</h2>
+      <p class="section-sub">Two projects spanning the full mobile development lifecycle — UI architecture, data persistence, cloud integration, and hardware sensors.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>LapauApp Foundation</h3>
+        <span class="project-tag">Project 01</span>
+      </div>
+      <p class="project-meta-text">Multi-screen architecture · Navigation · ViewModel · SDG 2 alignment</p>
+
+      <div class="project-section-title">Problem statement</div>
+      <p>Food waste and hunger coexist in our communities — millions face hunger daily while tonnes of food go to waste. LapauApp lets users order food while automatically donating from every order to fund community meals. Every three items ordered equals one meal funded, turning everyday purchases into measurable social impact.</p>
+
+      <div class="project-section-title">Lessons learned</div>
+      <p>Building a multi-screen app taught me to plan navigation upfront — sketching the flow on paper before coding saved hours of refactoring. Centralising shared data in ViewModel made the app maintainable as it grew from one screen to five. Good architecture matters more than fancy features.</p>
+
+      <div class="project-links">
+        <a href="https://youtu.be/Fhyd39ulhyg" target="_blank" class="project-link-btn primary">
+          <i class="ti ti-player-play"></i>
+          Watch VSR
+        </a>
+        <a href="https://github.com/MalKal3105/LapauApp" target="_blank" class="project-link-btn secondary">
+          <i class="ti ti-brand-github"></i>
+          Source code
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>LapauApp Advanced</h3>
+        <span class="project-tag">Project 02</span>
+      </div>
+      <p class="project-meta-text">14 screens · Room · Firebase · Retrofit · CameraX · ML Kit</p>
+
+      <div class="project-section-title">Problem statement</div>
+      <p>Extended LapauApp into a complete food waste reduction platform. Users scan food barcodes with the device camera, fetch live product details from the OpenFoodFacts API, track items in a personal fridge with expiry warnings, and donate surplus food to a real-time community food bank powered by Firebase Firestore — enabling local food sharing across the entire community.</p>
+
+      <div class="project-section-title">Four technical pillars</div>
+      <div class="pillar-grid">
+        <div class="pillar-item">
+          <div class="pillar-item-icon"><i class="ti ti-database"></i></div>
+          <h5>Room Database</h5>
+          <p>Local SQLite storage for fridge items and donations</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-icon"><i class="ti ti-cloud"></i></div>
+          <h5>Firebase Firestore</h5>
+          <p>Real-time cloud sync for community sharing</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-icon"><i class="ti ti-api"></i></div>
+          <h5>Retrofit REST API</h5>
+          <p>Live product lookups from OpenFoodFacts</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-icon"><i class="ti ti-scan"></i></div>
+          <h5>CameraX and ML Kit</h5>
+          <p>On-device barcode scanning sensor</p>
+        </div>
+      </div>
+
+      <div class="project-section-title">Lessons learned</div>
+      <p>Integrating four different technologies taught me how production apps actually work. Each technology has its place — Room for privacy, Firebase for community, API for live data, sensors for input. MVVM kept everything organised despite the complexity. The hardest challenges were version compatibility, distinguishing Firestore from Realtime Database, and getting CameraX working reliably on physical devices.</p>
+
+      <div class="project-links">
+        <a href="https://youtu.be/YVnVzIQQfos" target="_blank" class="project-link-btn primary">
+          <i class="ti ti-player-play"></i>
+          Watch VSR
+        </a>
+        <a href="https://github.com/MalKal3105/LapauApp" target="_blank" class="project-link-btn secondary">
+          <i class="ti ti-brand-github"></i>
+          Source code
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reflection" class="reflection-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Reflection</span>
+      <h2 class="section-title">The journey, in retrospect.</h2>
+      <p class="section-sub">From placing static text on a screen to building a 14-screen app with camera scanning, cloud sync, and real-time updates.</p>
+    </div>
+
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <div class="reflection-card-num">01</div>
+        <h4>Growth across labs</h4>
+        <p>Each lab built directly on the previous one — UI led to interaction, interaction led to design, design led to navigation, navigation led to persistence. By Project 2, every concept came together into one cohesive application that I could explain end-to-end.</p>
+      </div>
+
+      <div class="reflection-card">
+        <div class="reflection-card-num">02</div>
+        <h4>Biggest challenges</h4>
+        <ul>
+          <li><strong>KSP setup:</strong> matching Kotlin 2.2.10 with KSP 2.2.10-2.0.2 exactly</li>
+          <li><strong>Firebase:</strong> distinguishing Firestore from Realtime Database</li>
+          <li><strong>CameraX:</strong> only works on physical devices, not emulators</li>
+          <li><strong>Data choices:</strong> when to use Room versus Firebase for the right data</li>
+        </ul>
+      </div>
+
+      <div class="reflection-card">
+        <div class="reflection-card-num">03</div>
+        <h4>SDG impact</h4>
+        <p>LapauApp directly supports SDG 2 Zero Hunger. Every three items ordered funds one meal. The Community Food Bank enables real-time food sharing. My Fridge with expiry tracking prevents waste at the individual level. Small daily actions translate into measurable social impact.</p>
+      </div>
+
+      <div class="reflection-card">
+        <div class="reflection-card-num">04</div>
+        <h4>What is next</h4>
+        <p>If starting over I would invest more time in upfront planning — sketching all screens before coding. I would write unit tests from Lab 3 onwards. My next areas of growth are Compose performance optimisation and dependency injection with Hilt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Capabilities</span>
+      <h2 class="section-title">Tools I work with daily.</h2>
+      <p class="section-sub">Technologies I can use confidently to build production-grade Android applications.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-tag">Kotlin</div>
+      <div class="skill-tag">Jetpack Compose</div>
+      <div class="skill-tag">MVVM Architecture</div>
+      <div class="skill-tag">Room Database</div>
+      <div class="skill-tag">Firebase Firestore</div>
+      <div class="skill-tag">Retrofit</div>
+      <div class="skill-tag">OkHttp</div>
+      <div class="skill-tag">CameraX</div>
+      <div class="skill-tag">ML Kit</div>
+      <div class="skill-tag">Coroutines</div>
+      <div class="skill-tag">StateFlow</div>
+      <div class="skill-tag">Material Design 3</div>
+      <div class="skill-tag">Navigation Compose</div>
+      <div class="skill-tag">Repository Pattern</div>
+      <div class="skill-tag">KSP</div>
+      <div class="skill-tag">Git and GitHub</div>
+      <div class="skill-tag">Android Studio</div>
+      <div class="skill-tag">REST APIs</div>
+      <div class="skill-tag">JSON and Gson</div>
+      <div class="skill-tag">UI and UX Design</div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Resources</span>
+      <h2 class="section-title">References and credits.</h2>
+      <p class="section-sub">APIs, libraries, documentation, and acknowledgements used throughout this portfolio.</p>
+    </div>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h4><i class="ti ti-api"></i> APIs used</h4>
+        <ul>
+          <li><a href="https://world.openfoodfacts.org/data" target="_blank">OpenFoodFacts API</a> — Free product database for barcode lookups</li>
+        </ul>
+      </div>
+
+      <div class="resource-card">
+        <h4><i class="ti ti-box"></i> Core libraries</h4>
+        <ul>
+          <li>Jetpack Compose</li>
+          <li>Room Database</li>
+          <li>Firebase Firestore</li>
+          <li>Retrofit and OkHttp</li>
+          <li>CameraX and ML Kit</li>
+          <li>Coil and Accompanist</li>
+        </ul>
+      </div>
+
+      <div class="resource-card">
+        <h4><i class="ti ti-book"></i> Documentation</h4>
+        <ul>
+          <li><a href="https://developer.android.com/jetpack/compose" target="_blank">Jetpack Compose docs</a></li>
+          <li><a href="https://firebase.google.com/docs/firestore" target="_blank">Firestore documentation</a></li>
+          <li><a href="https://square.github.io/retrofit/" target="_blank">Retrofit guide</a></li>
+          <li><a href="https://developers.google.com/ml-kit/vision/barcode-scanning" target="_blank">ML Kit Barcode</a></li>
+        </ul>
+      </div>
+
+      <div class="resource-card" style="grid-column: 1 / -1;">
+        <h4><i class="ti ti-sparkles"></i> AI assistance acknowledgement</h4>
+        <p class="resource-note">Claude AI was used throughout this project as a learning partner — to understand new concepts, debug compilation errors, review code architecture decisions, and accelerate boilerplate setup. All implementation, design choices, testing, debugging, deployment, and reflection are my own work. AI was used as a tutor and rubber duck, not as a replacement for understanding. Every line of code in this project I can read, modify, and explain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Muhammad Iqmal Haikal</div>
+        <p class="footer-brand-desc">Information Technology student developing Android applications with a focus on social impact through technology. This portfolio documents coursework aligned with UN SDG 2 Zero Hunger.</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#labs">Labs</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://github.com/MalKal3105/LapauApp" target="_blank">GitHub</a></li>
+          <li><a href="https://youtu.be/YVnVzIQQfos" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Muhammad Iqmal Haikal bin Mansor · A221017 · Mobile App Development Portfolio</p>
+      <div class="footer-socials">
+        <a href="https://github.com/MalKal3105/LapauApp" target="_blank" aria-label="GitHub"><i class="ti ti-brand-github"></i></a>
+        <a href="https://youtu.be/YVnVzIQQfos" target="_blank" aria-label="YouTube"><i class="ti ti-brand-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
